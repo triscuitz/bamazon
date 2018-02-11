@@ -1,1 +1,6 @@
 # bamazon
+This is a node based store app. 
+
+# customer view
+The customer view is the main (currently only) view working in this app. It is accessed via running customer.js.
+Once your are in customer view you will be given a list of the items in the store (image 1). This list will contain a unique ID for each item, an item name and a cost, ie: 'ID: 1 PRODUCT: iPhone 8 COST: $699'. The customer will be asked what item they would like to purchase and then they will be asked how many of the given item they would like to purchase. Upon responce to both of these the system will check if there is suffecient stock to fill the order, if there is, the order will be placed and the customer will be given a total cost for the purchase (image 2). 
