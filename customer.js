@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const connection = require('./connection.js');
 
 // Shows prodoct listing
-function buyProducts(){
+buyProducts = ()=> {
   let buyItem;
   let buyQuantity;
 
@@ -34,13 +34,13 @@ function buyProducts(){
 };
 
 //Checks to see if you have stock of items
-function stockCheck (buyNumber, buyItem) {
-  connection.query('SELECT * FROM products WHERE id=? ',[buyItem], function(err, data) {
+stockCheck = (buyNumber, buyItem)=> {
+  connection.query('SELECT * FROM products WHERE ? ',[{id: buyItem}], function(err, data) {
 
     if (err) throw err;
-      console.log(data);
-      console.log(buyItem);
-      console.log(buyNumber);
+      // console.log(data);
+      // console.log(buyItem);
+      // console.log(buyNumber);
 
     if (buyNumber <= data[0].in_stock) {
       let totalCost = buyNumber * data[0].price;
@@ -52,6 +52,7 @@ function stockCheck (buyNumber, buyItem) {
         if (err) throw err;
         // console.log(newStock);
       });
+      buyProducts();
     }
 
     else {
