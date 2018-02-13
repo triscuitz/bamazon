@@ -41,17 +41,22 @@ addStock = ()=> {
         if (err) throw err;
 
           let itemStock = data[0].in_stock;
-          let newStock = parseInt(itemStock + manageStock.number);
+          let newStock = parseInt(manageStock.number) + itemStock;
 
           connection.query('UPDATE `products` SET ? WHERE ?',[{in_stock: newStock},{id: manageStock.item}], function(err, data) {
             if (err) throw err;
 
             console.log('Quantity has been updated.');
             mainMenu();
+          })
+      });
     })
-  });
-})
 };
+
+addProduct= ()=> {
+  console.log('Function not working! Sorry!');
+  mainMenu();
+}
 
 mainMenu= ()=> {
 inquirer.prompt([
